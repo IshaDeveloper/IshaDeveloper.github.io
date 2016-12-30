@@ -12,15 +12,16 @@
 	          if (range.values.length > 0) {
 	            var entries = range.values;
 	            for(key in entries) {
-	              $scope.entries.push({
-	                firstName : entries[key][1],
-	                lastName : entries[key][2],
-	                checkedin : entries[key][4],
-	                email : entries[key][6],
-	                cityCenter: entries[key][7],
-	                kidbetween613: entries[key][8],
-	                kidsunder6: entries[key][9],
-	              })
+	            	
+		            $scope.entries.push({
+		                firstName : entries[key][1],
+		                lastName : entries[key][2],
+		                checkedin : entries[key][4],
+		                email : entries[key][6],
+		                cityCenter: entries[key][7],
+		                kidbetween613: entries[key][8],
+		                kidsunder6: entries[key][9],
+		            })
 	            }
 	          } else {
 
@@ -42,6 +43,7 @@
 			})
 			.then(function(res) {
 				console.log(res);
+				$scope.spinner
 				fetch();
 			})
 		}

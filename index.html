@@ -4,6 +4,8 @@
       <meta charset="utf-8" />
       <title>Tools - An Angular and Google Sheet Example</title>
       <meta name="generator" content="BBEdit 11.1" />
+      <link rel="stylesheet" type="text/css" href="/bower_components/bootstrap/dist/css/bootstrap.min.css">
+      <link rel="stylesheet" type="text/css" href="app.css">
       
       <script src="/bower_components/angular/angular.min.js"></script>
       <script src="/bower_components/angular-ui-router/release/angular-ui-router.js"></script>
@@ -14,7 +16,13 @@
       <script src="/login/loginCtrl.js"></script>
       <script src="/main/mainCtrl.js"></script>
   <body ng-app="myApp" ng-controller="AppCtrl">
-    <button ng-if="state.$current.name !== 'login'" ng-click="logout()">Logout</button>
-    <ui-view/>
+    <div class="container">
+      <div class="row">
+        <button class="btn btn-info col-xs-2 col-xs-offset-9" ng-if="state.$current.name !== 'login'" ng-click="logout()">Logout</button>
+        
+      </div>
+      <ui-view/>
+      
+    </div>
   </body>
 </html>

@@ -1,31 +1,36 @@
-<label>Search
-  <label> First Name 
-    <input type="text" name="firstname" ng-model="search.firstName" placeholder="First Name" \>
-  </label>
-  <label> Last Name
-    <input type="text" name="lastname" ng-model="search.lastName" placeholder="Last Name" \>
-  </label>
-</label>
-<table>
+  <div class="form-group">
+    <div class="form-group">
+      <label class="col-xs-1">Search</label>
+    </div>
+    <div class="form-group">
+      <label class="sr-only">First Name </label>
+      <input class="form-control" type="text" name="firstname" ng-model="search.firstName" placeholder="First Name" \>
+    </div>
+    <div class="form-group">
+      <label class="sr-only"> Last Name</label>
+      <input class="form-control" type="text" name="lastname" ng-model="search.lastName" placeholder="Last Name" \>  
+    </div>
+  </div>
+<table class="table">
   <thead>
-    <tr>
-      <th>First Name</th>
-      <th>Last Name</th>
-      <th>City Center</th>
-      <th>Children</th>
-      <th>Check In</th>
+    <tr class="row">
+      <th class="col-xs-3">First Name</th>
+      <th class="col-xs-3">Last Name</th>
+      <th class="col-xs-2">City Center</th>
+      <th class="col-xs-1">Children</th>
+      <th class="col-xs-3">Check In</th>
     </tr>
   </thead>
   <tbody>
-    <tr class="entry" ng-repeat="entry in entries | filter:search">
-      <td><p>{{ entry.firstName}}</p></td>
-      <td><p>{{ entry.lastName }}</p></td>
-      <td><p>{{ entry.cityCenter }}</p></td>
-      <td><p>{{ entry.kidbetween613 }} / {{ entry.kidsunder6 }}</p>
+    <tr class="row" ng-class="$index%2 === 0 ? 'active' : '' " ng-repeat="entry in entries | filter:search">
+      <td class="col-xs-3"><p>{{ entry.firstName}}</p></td>
+      <td class="col-xs-3"><p>{{ entry.lastName }}</p></td>
+      <td class="col-xs-2"><p>{{ entry.cityCenter }}</p></td>
+      <td class="col-xs-1"><p>{{ entry.kidbetween613 }} / {{ entry.kidsunder6 }}</p>
       </td>
-      <td>
-        <button  ng-if="!entry.checkedin" ng-click="checkIn(entry)">Check In</button> 
-        <button  ng-if="entry.checkedin" ng-click="UndoCheckIn(entry)">Undo</button>
+      <td class="col-xs-3">
+        <button  class="btn btn-primary btn-lg row" ng-if="!entry.checkedin" ng-click="checkIn(entry)">Check In</button> 
+        <button  class="btn btn-danger btn-lg row" ng-if="entry.checkedin" ng-click="UndoCheckIn(entry)">Undo</button>
       </td>
     </tr>
   </tbody>
