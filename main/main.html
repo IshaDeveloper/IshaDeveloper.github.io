@@ -1,14 +1,27 @@
+<div class="form-group">
   <div class="form-group">
-    <div class="form-group">
-      <label class="col-xs-1">Search</label>
-    </div>
-    <div class="form-group">
-      <label class="sr-only">First Name </label>
-      <input class="form-control" type="text" name="firstname" ng-model="search.firstName" placeholder="First Name" \>
-    </div>
-    <div class="form-group">
-      <label class="sr-only"> Last Name</label>
-      <input class="form-control" type="text" name="lastname" ng-model="search.lastName" placeholder="Last Name" \>  
+    <label class="col-xs-1">Search</label>
+  </div>
+  <div class="form-group">
+    <label class="sr-only">First Name </label>
+    <input class="form-control" type="text" name="firstname" ng-model="search.firstName" placeholder="First Name" \>
+  </div>
+  <div class="form-group">
+    <label class="sr-only"> Last Name</label>
+    <input class="form-control" type="text" name="lastname" ng-model="search.lastName" placeholder="Last Name" \>  
+  </div>
+</div>
+<div class='card well' ng-if="showCofirmation">
+    <div class="card-block">
+      <h3 class="center-text card-title">
+        Are you sure you want to Undo the Check-in for
+      </h3>
+      <p class="card-text bold">{{undoCheckinEntry.firstName}} {{undoCheckinEntry.lastName}}</p>
+      <div class="row">
+        <button class="btn btn-danger col-xs-1 col-xs-offset-8 btn-lg" ng-click="confirmUndo()"> YES</button>
+        <button class="btn btn-success col-xs-1 col-xs-offset-1 btn-lg" ng-click="cancelUndo()"> NO</button>
+      </div>
+      
     </div>
   </div>
 <table class="table">
@@ -34,5 +47,6 @@
       </td>
     </tr>
   </tbody>
+  
 </table>
    

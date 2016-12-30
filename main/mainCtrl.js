@@ -12,7 +12,7 @@
 	          if (range.values.length > 0) {
 	            var entries = range.values;
 	            for(key in entries) {
-	            	
+
 		            $scope.entries.push({
 		                firstName : entries[key][1],
 		                lastName : entries[key][2],
@@ -48,7 +48,12 @@
 			})
 		}
 	    $scope.UndoCheckIn  = function (entry) {
-			var row = $scope.entries.indexOf(entry)+2;
+			
+			$scope.undoCheckinEntry = entry;
+			$scope.showCofirmation = true;
+		}
+		$scope.confirmUndo = function () {
+			var row = $scope.entries.indexOf($scope.undoCheckinEntry)+2;
 			GApi.executeAuth('sheets', 'spreadsheets.values.clear', {
 				spreadsheetId: '1vaYjqp7i5b4UW-1qR-k2iIwm7yTs5YLkULgj4neIZEA',
 	          	range: 'E'+row,
@@ -56,8 +61,16 @@
 			})
 			.then(function(res) {
 				console.log(res);
+				$scope.undoCheckinEntry = {};
+				$scope.showCofirmation = false;
 				fetch();
 			})
+		}
+
+		$scope.cancelUndo = function () {
+			$scope.undoCheckinEntry = {};
+			$scope.showCofirmation = false;
+			fetch();
 		}
 	    
 	    fetch();

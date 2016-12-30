@@ -55,6 +55,12 @@ app.run(['GAuth', 'GApi', 'GData', '$state', '$rootScope', '$cookies',
         controller: 'MainCtrl'
 
     })
+    .state({
+        name: 'main.confirm',
+        url: '/main/confirm',
+        templateUrl: '/main/confirm.html',
+        controller: 'ConfirmCtrl'
+    });
 }])
 .controller('AppCtrl', function ($rootScope, $scope, GAuth, $state) {
     $rootScope.state = $state;
