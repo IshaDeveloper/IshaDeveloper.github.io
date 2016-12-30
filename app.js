@@ -1,7 +1,7 @@
 var app = angular.module('myApp', ['ui.router', 'angular-google-gapi', 'ngCookies']);
 
 
-app.run(['GAuth', 'GApi', 'GData', '$state', '$rootScope',
+app.run(['GAuth', 'GApi', 'GData', '$state', '$rootScope', '$cookies',
     function(GAuth, GApi, GData, $state, $rootScope, $cookies) {
 
         $rootScope.gdata = GData;
