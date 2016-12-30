@@ -1,0 +1,33 @@
+<label>Search
+  <label> First Name 
+    <input type="text" name="firstname" ng-model="search.firstName" placeholder="First Name" \>
+  </label>
+  <label> Last Name
+    <input type="text" name="lastname" ng-model="search.lastName" placeholder="Last Name" \>
+  </label>
+</label>
+<table>
+  <thead>
+    <tr>
+      <th>First Name</th>
+      <th>Last Name</th>
+      <th>City Center</th>
+      <th>Children</th>
+      <th>Check In</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr class="entry" ng-repeat="entry in entries | filter:search">
+      <td><p>{{ entry.firstName}}</p></td>
+      <td><p>{{ entry.lastName }}</p></td>
+      <td><p>{{ entry.cityCenter }}</p></td>
+      <td><p>{{ entry.kidbetween613 }} / {{ entry.kidsunder6 }}</p>
+      </td>
+      <td>
+        <button  ng-if="!entry.checkedin" ng-click="checkIn(entry)">Check In</button> 
+        <button  ng-if="entry.checkedin" ng-click="UndoCheckIn(entry)">Undo</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+   

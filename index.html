@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+      <meta charset="utf-8" />
+      <title>Tools - An Angular and Google Sheet Example</title>
+      <meta name="generator" content="BBEdit 11.1" />
+      
+      <script src="/bower_components/angular/angular.min.js"></script>
+      <script src="/bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+      <script src="/bower_components/angular-google-gapi/dist/angular-google-gapi.js"></script>
+      <script src="/app.js"></script>
+      <script src="/login/loginCtrl.js"></script>
+      <script src="/main/mainCtrl.js"></script>
+  <body ng-app="myApp" ng-controller="AppCtrl">
+    <button ng-if="state.$current.name !== 'login'" ng-click="logout()">Logout</button>
+    <ui-view/>
+  </body>
+</html>
