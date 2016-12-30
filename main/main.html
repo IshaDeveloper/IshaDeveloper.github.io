@@ -28,9 +28,9 @@
       <td class="col-xs-2"><p>{{ entry.cityCenter }}</p></td>
       <td class="col-xs-1"><p>{{ entry.kidbetween613 }} / {{ entry.kidsunder6 }}</p>
       </td>
-      <td class="col-xs-3">
-        <button  class="btn btn-primary btn-lg row" ng-if="!entry.checkedin" ng-click="checkIn(entry)">Check In</button> 
-        <button  class="btn btn-danger btn-lg row" ng-if="entry.checkedin" ng-click="UndoCheckIn(entry)">Undo</button>
+      <td class="col-xs-4">
+        <button  class="btn btn-primary btn-lg center" ng-if="!entry.checkedin" ng-click="checkIn(entry)">Check In</button> 
+        <button  class="btn btn-danger btn-lg center" ng-if="entry.checkedin" ng-click="UndoCheckIn(entry)">Undo</button>
       </td>
     </tr>
   </tbody>
