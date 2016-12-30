@@ -1,4 +1,4 @@
-var app = angular.module('myApp', ['ui.router', 'angular-google-gapi']);
+var app = angular.module('myApp', ['ui.router', 'angular-google-gapi', 'ngCookies']);
 
 
 app.run(['GAuth', 'GApi', 'GData', '$state', '$rootScope',
