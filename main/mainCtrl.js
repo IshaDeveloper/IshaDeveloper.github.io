@@ -5,10 +5,8 @@
 	   	  		spreadsheetId: '1vaYjqp7i5b4UW-1qR-k2iIwm7yTs5YLkULgj4neIZEA',
 	          	range: 'checkin!A2:L'
 	   	  	}).then(function(response) {
-	   	  		console.log(response)
 	          var range = response.result;
 	          $scope.entries = [];
-	          console.log(range);
 	          if (range.values.length > 0) {
 	            var entries = range.values;
 	            for(key in entries) {
@@ -23,27 +21,24 @@
 		                kidsunder6: entries[key][9],
 		            })
 	            }
-	          } else {
-
 	          }
 	        }, function(response) {
-	          console.log("ERROR :",response);
+	        	
 	        });
       	}
 
 	    $scope.checkIn  = function (entry) {
-			var row = $scope.entries.indexOf(entry) + 2;
+	    	var index = $scope.entries.indexOf(entry), 
+	    		row = index + 2;
 			GApi.executeAuth('sheets', 'spreadsheets.values.append', {
 				spreadsheetId: '1vaYjqp7i5b4UW-1qR-k2iIwm7yTs5YLkULgj4neIZEA',
-	          	range: 'E'+row,
+	          	range: 'E'+ row,
 	          	valueInputOption: 'RAW',
 	          	insertDataOption: 'OVERWRITE',
 	          	includeValuesInResponse: true,
 				values: [[ 'True']]
 			})
 			.then(function(res) {
-				console.log(res);
-				$scope.spinner
 				fetch();
 			})
 		}
@@ -60,7 +55,6 @@
 	          	fields: 'clearedRange',
 			})
 			.then(function(res) {
-				console.log(res);
 				$scope.undoCheckinEntry = {};
 				$scope.showCofirmation = false;
 				fetch();
