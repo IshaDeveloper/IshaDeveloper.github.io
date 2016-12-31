@@ -1,9 +1,10 @@
  var app = angular.module('myApp');
     app.controller('MainCtrl', function($scope, $http, GApi) {
 	   	function fetch() { 
+
 	   	  	GApi.executeAuth('sheets', 'spreadsheets.values.get', {
-	   	  		spreadsheetId: '1vaYjqp7i5b4UW-1qR-k2iIwm7yTs5YLkULgj4neIZEA',
-	          	range: 'checkin!A2:L'
+	   	  		spreadsheetId: '1Ya5nuFKDJhhQuf9S6XN3TpJeobn6bvP06Z9LLpcYzuA', //'1vaYjqp7i5b4UW-1qR-k2iIwm7yTs5YLkULgj4neIZEA',
+	          	range: 'Form Responses 1!A2:L', //'checkin!A2:L' // 'Form Responses 1!A2:L',
 	   	  	}).then(function(response) {
 	          var range = response.result;
 	          $scope.entries = [];
@@ -23,7 +24,7 @@
 	            }
 	          }
 	        }, function(response) {
-	        	
+
 	        });
       	}
 
@@ -31,7 +32,7 @@
 	    	var index = $scope.entries.indexOf(entry), 
 	    		row = index + 2;
 			GApi.executeAuth('sheets', 'spreadsheets.values.append', {
-				spreadsheetId: '1vaYjqp7i5b4UW-1qR-k2iIwm7yTs5YLkULgj4neIZEA',
+				spreadsheetId: '1Ya5nuFKDJhhQuf9S6XN3TpJeobn6bvP06Z9LLpcYzuA', // '1vaYjqp7i5b4UW-1qR-k2iIwm7yTs5YLkULgj4neIZEA',
 	          	range: 'E'+ row,
 	          	valueInputOption: 'RAW',
 	          	insertDataOption: 'OVERWRITE',
@@ -50,7 +51,7 @@
 		$scope.confirmUndo = function () {
 			var row = $scope.entries.indexOf($scope.undoCheckinEntry)+2;
 			GApi.executeAuth('sheets', 'spreadsheets.values.clear', {
-				spreadsheetId: '1vaYjqp7i5b4UW-1qR-k2iIwm7yTs5YLkULgj4neIZEA',
+				spreadsheetId: '1Ya5nuFKDJhhQuf9S6XN3TpJeobn6bvP06Z9LLpcYzuA', // '1vaYjqp7i5b4UW-1qR-k2iIwm7yTs5YLkULgj4neIZEA',
 	          	range: 'E'+row,
 	          	fields: 'clearedRange',
 			})
